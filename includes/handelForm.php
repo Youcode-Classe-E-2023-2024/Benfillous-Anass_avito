@@ -37,21 +37,35 @@
     <?php
     }
     ?>
-    <form action="./handelForm.php" method="post" enctype="multipart/form-data">
-        <label for="title">Title</label>
-        <input type="text" name="title" id="title" required>
+    <form action="./handelForm.php" method="post" enctype="multipart/form-data" class="mt-5">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" id="title" class="form-control" required>
+        </div>
 
-        <label for="title">Image</label>
-        <input type="file" accept="image/jpeg" name="image" id="image" required>
+        <div class="mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input type="file" accept="image/jpeg" name="image" id="image" class="form-control" required>
+        </div>
 
-        <label for="title">Price</label>
-        <input type="number" name="price" id="price" required>
-        <label for="title">Description</label>
-        <input type="text" name="description" id="description" required>
-        <label for="title">Phone</label>
-        <input type="number" name="phone" id="phone" required>
-        <button>Add your Anounce</button>
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" name="price" id="price" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <input type="text" name="description" id="description" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="phone" class="form-label">Phone</label>
+            <input type="number" name="phone" id="phone" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Your Announcement</button>
     </form>
+
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

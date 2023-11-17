@@ -26,12 +26,31 @@
             margin-top: 20px;
 
         }
+
         .empty {
-            height: 500Px   ;
+            height: 500Px;
             display: flex;
             justify-content: center;
             align-items: center;
             font-size: 24px;
+        }
+
+        /* Define a custom class for the red button */
+        .btn-red {
+            background-color: red;
+            border-color: red;
+            color: white;
+            /* text color */
+        }
+
+        /* Override Bootstrap styles for the red button when it is clicked or hovered */
+        .btn-red:hover,
+        .btn-red:active,
+        .btn-red:focus {
+            background-color: darkred;
+            border-color: darkred;
+            color: white;
+            /* text color */
         }
     </style>
 </head>
@@ -108,22 +127,47 @@
                         <td><?php echo $announce["descri"] ?></td>
                         <td><?php echo $announce["phone"] ?></td>
                         <td><a href="edit.php/?id=<?php echo $announce["id"] ?>">edit</a></td>
-                        <td><a href="./includes/delete.php/?id=<?php echo $announce["id"] ?>">delete</a></td>
+                        <td>
+                            <button type="button" class="btn btn-primary btn-red" data-toggle="modal" data-target="#exampleModal">
+                                Delete
+                            </button>
+                        </td>
                         <td></td>
-
                     </tr>
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Remove Item</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Are You Sure You Want To Remove <?php echo $announce["title"] ?>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <form action="./includes/delete.php/?id=<?php echo $announce["id"] ?>" method="post">
+                                        <button type="submit" class="btn btn-primary btn-red">Yes</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 <?php } ?>
 
 
             </tbody>
         </table>
         <?php
-                if (count($data) == 0) {
-                ?>
-                    <div class="empty"> the List is Empty </div>
-                <?php
-                }
-                ?>
+        if (count($data) == 0) {
+        ?>
+            <div class="empty"> the List is Empty </div>
+        <?php
+        }
+        ?>
     </main>
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted">
@@ -248,6 +292,9 @@
     </footer>
     <!-- Footer -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>
