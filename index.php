@@ -26,6 +26,13 @@
             margin-top: 20px;
 
         }
+        .empty {
+            height: 500Px   ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+        }
     </style>
 </head>
 
@@ -106,8 +113,17 @@
 
                     </tr>
                 <?php } ?>
+
+
             </tbody>
         </table>
+        <?php
+                if (count($data) == 0) {
+                ?>
+                    <div class="empty"> the List is Empty </div>
+                <?php
+                }
+                ?>
     </main>
     <!-- Footer -->
     <footer class="text-center text-lg-start bg-light text-muted">
