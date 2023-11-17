@@ -38,14 +38,14 @@
         <?php
         if (isset($_GET["updated"])) {
         ?>
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-primary" role="alert">
                 The Announce is Updated Succesfully
             </div>
         <?php } ?>
         <?php
         if (isset($_GET["deleted"])) {
         ?>
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-warning" role="alert">
                 The Announce is Deleted Succesfully
             </div>
         <?php } ?>

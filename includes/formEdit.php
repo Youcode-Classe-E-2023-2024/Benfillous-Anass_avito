@@ -27,5 +27,5 @@ if (isset($_POST["submit"])) {
 
     $stmt->close();
     $conn->close();
-    // header("location:../index.php?updated=true");
+    header("location:../index.php?updated=true");
 }
