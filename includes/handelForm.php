@@ -21,27 +21,40 @@
 
         }
     </style>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
 </head>
 
 <body>
+    <?php
+    if (isset($_GET["error"]) == true) {
+
+    ?>
+        <div class="alert alert-danger" role="alert">
+            The data You've Entered is Incorrect
+        </div>
+
+    <?php
+    }
+    ?>
     <form action="./handelForm.php" method="post" enctype="multipart/form-data">
         <label for="title">Title</label>
-        <input type="text" name="title" id="title">
+        <input type="text" name="title" id="title" required>
 
         <label for="title">Image</label>
         <input type="file" accept="image/jpeg" name="image" id="image" required>
 
         <label for="title">Price</label>
-        <input type="number" name="price" id="price">
+        <input type="number" name="price" id="price" required>
         <label for="title">Description</label>
-        <input type="text" name="description" id="description">
+        <input type="text" name="description" id="description" required>
         <label for="title">Phone</label>
-        <input type="number" name="phone" id="phone">
+        <input type="number" name="phone" id="phone" required>
         <button>Add your Anounce</button>
     </form>
 
 
-    <script src="./main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>
@@ -54,6 +67,14 @@ if (isset($_POST["description"])) {
     $price = $_POST["price"];
     $description = $_POST["description"];
     $phone = $_POST["phone"];
+
+    include("./checker.php");
+    foreach ($_POST as $key => $value) {
+        if (htmlChecker($value)) {
+            header("location: ./handelForm.php?error=true");
+            exit;
+        }
+    }
 
     if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
         $img = file_get_contents($_FILES['image']['tmp_name']);
@@ -74,7 +95,6 @@ if (isset($_POST["description"])) {
 
     $stmt->close();
     $conn->close();
-    header("location:../index.php");
+    header("location:../index.php?added=true");
 }
 ?>
-

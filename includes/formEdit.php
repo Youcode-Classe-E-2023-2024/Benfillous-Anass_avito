@@ -1,12 +1,19 @@
 <?php
 include("./config.php");
-$updated = true;
 if (isset($_POST["submit"])) {
     $title = $_POST["title"];
     $price = $_POST["price"];
     $description = $_POST["description"];
     $phone = $_POST["phone"];
     $id = $_POST["id"];
+
+    include("./checker.php");
+    foreach ($_POST as $key => $value) {
+        if (htmlChecker($value)){
+            header("location: ../index.php?error=true");
+            exit;
+        }
+    }
     // Use prepared statements to prevent SQL injection
     $sql = "UPDATE announces SET title = ?, price = ?, descri = ?, phone = ? WHERE id = ?";
     $stmt = $conn->prepare($sql);
@@ -20,5 +27,5 @@ if (isset($_POST["submit"])) {
 
     $stmt->close();
     $conn->close();
-    header("location:../index.php?updated=true");
+    // header("location:../index.php?updated=true");
 }

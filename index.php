@@ -43,12 +43,33 @@
             </div>
         <?php } ?>
         <?php
-        if (isset($_GET["delete"])) {
+        if (isset($_GET["deleted"])) {
         ?>
             <div class="alert alert-success" role="alert">
                 The Announce is Deleted Succesfully
             </div>
         <?php } ?>
+
+        <?php
+        if (isset($_GET["added"])) {
+        ?>
+            <div class="alert alert-success" role="alert">
+                The Announce is Added Succesfully
+            </div>
+        <?php } ?>
+
+        <?php
+        if (isset($_GET["error"]) == true) {
+
+        ?>
+            <div class="alert alert-danger" role="alert">
+                The data You've Entered is Incorrect
+            </div>
+
+        <?php
+        }
+        ?>
+
         <table class="table table-hover table-dark">
             <thead>
                 <tr>
@@ -80,7 +101,9 @@
                         <td><?php echo $announce["descri"] ?></td>
                         <td><?php echo $announce["phone"] ?></td>
                         <td><a href="edit.php/?id=<?php echo $announce["id"] ?>">edit</a></td>
-                        <td><a href="delete.php/?id=<?php echo $announce["id"] ?>">delete</a></td>
+                        <td><a href="./includes/delete.php/?id=<?php echo $announce["id"] ?>">delete</a></td>
+                        <td></td>
+
                     </tr>
                 <?php } ?>
             </tbody>

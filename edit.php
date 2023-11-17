@@ -52,13 +52,13 @@
     <form action="../includes/formEdit.php" method="post" enctype="multipart/form-data">
         <?php echo '<img src="data:image/jpeg;base64,' . base64_encode($row["img"]) . '" alt="Uploaded Image">'; ?>
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" value="<?php echo $row["title"] ?>">
+        <input type="text" name="title" id="title" value="<?php echo $row["title"] ?>" required>
         <label for="title">Price</label>
-        <input type="number" name="price" id="price" value="<?php echo $row["price"] ?>">
+        <input type="number" name="price" id="price" value="<?php echo $row["price"] ?>" required>
         <label for="title">Description</label>
-        <input type="text" name="description" id="description" value="<?php echo $row["descri"] ?>">
+        <input type="text" name="description" id="description" value="<?php echo $row["descri"] ?>" required>
         <label for="title">Phone</label>
-        <input type="number" name="phone" id="phone" value="<?php echo $row["phone"] ?>">
+        <input type="number" name="phone" id="phone" value="<?php echo $row["phone"] ?>" required>
         <input type="hidden" value="<?php echo $id; ?> " name="id">
         <button name="submit">Add your Anounce</button>
     </form>
