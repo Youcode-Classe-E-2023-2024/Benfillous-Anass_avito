@@ -83,11 +83,9 @@ if (isset($_POST["description"])) {
         }
     }
 
-    if (isset($_FILES['image']) && $_FILES['image']['error'] == UPLOAD_ERR_OK) {
-        $img = file_get_contents($_FILES['image']['tmp_name']);
-    } else {
-        echo "Error uploading file.";
-    }
+    $img = file_get_contents($_FILES['image']['tmp_name']);
+
+
 
     // Use prepared statements to prevent SQL injection
     $sql = "INSERT INTO announces (title, img, price, descri, phone) VALUES (?, ?, ?, ?, ?)";

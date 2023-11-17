@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+include_once("./includes/getData.php");
+$data = getData();
+?>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,9 +122,13 @@
                     <th scope="col">Delete</th>
                     <th scope="col">
                         <a href="./includes/handelForm.php"><button>Add Product</button></a>
+                        <?php
+                        if (count($data) != 0) {
+                        ?>
                             <button type="button" class="btn btn-primary btn-red" data-toggle="modal" data-target="#exampleModal">
-                                Delete
+                                Delete ALL
                             </button>
+                        <?php } ?>
                     </th>
                 </tr>
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -146,8 +155,6 @@
             </thead>
             <tbody>
                 <?php
-                include_once("./includes/getData.php");
-                $data = getData();
                 foreach ($data as $announce) {
 
                 ?>
