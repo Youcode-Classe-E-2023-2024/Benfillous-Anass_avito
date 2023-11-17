@@ -77,6 +77,14 @@
         <?php } ?>
 
         <?php
+        if (isset($_GET["deletedALL"])) {
+        ?>
+            <div class="alert alert-warning" role="alert">
+                ALL The Announces are Deleted Succesfully
+            </div>
+        <?php } ?>
+
+        <?php
         if (isset($_GET["added"])) {
         ?>
             <div class="alert alert-success" role="alert">
@@ -109,8 +117,32 @@
                     <th scope="col">Delete</th>
                     <th scope="col">
                         <a href="./includes/handelForm.php"><button>Add Product</button></a>
+                            <button type="button" class="btn btn-primary btn-red" data-toggle="modal" data-target="#exampleModal">
+                                Delete
+                            </button>
                     </th>
                 </tr>
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Remove Item</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                Are You Sure You Want To Remove ALL
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <form action="./includes/deleteAll.php" method="post">
+                                    <button type="submit" class="btn btn-primary btn-red">Yes</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </thead>
             <tbody>
                 <?php
@@ -128,14 +160,14 @@
                         <td><?php echo $announce["phone"] ?></td>
                         <td><a href="edit.php/?id=<?php echo $announce["id"] ?>">edit</a></td>
                         <td>
-                            <button type="button" class="btn btn-primary btn-red" data-toggle="modal" data-target="#exampleModal">
+                            <button type="button" class="btn btn-primary btn-red" data-toggle="modal" data-target="#remove">
                                 Delete
                             </button>
                         </td>
                         <td></td>
                     </tr>
                     <!-- Modal -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="remove" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
