@@ -8,13 +8,13 @@ L'entreprise Avito, dans sa logique de refactorisation, souhaite redéfinir les 
 
 ### 1. Use Case Diagram
 
-- File: `use_case_diagram.png`
+- File: `Uml\UseCaseDiagram.png`
 
 Description: This file contains the use case diagram illustrating the various interactions between users and the system.
 
 ### 2. Class Diagram
 
-- File: `class_diagram.png`
+- File: `Uml\ClassDiagram.png`
 
 Description: This file contains the class diagram outlining the essential classes and their relationships for the Avito annonces site.
 
