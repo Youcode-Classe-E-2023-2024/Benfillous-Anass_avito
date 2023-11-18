@@ -57,27 +57,33 @@ $data = getData();
             color: white;
             /* text color */
         }
+        .add {
+            border: none;
+        }
+        .js-alert {
+            display: block;
+        }
     </style>
 </head>
 
 <body>
     <nav class="navbar navbar-dark bg-primary d-flex justify-content-around">
-        <a class="navbar-brand"><img src="https://www.avito.ma/phoenix-assets/imgs/layout/new-logo.svg" alt=""></a>
-        <a href="./includes/handelForm.php"><button>Add Product</button></a>
+        <a  href="./index.php" class="navbar-brand"><img src="https://www.avito.ma/phoenix-assets/imgs/layout/new-logo.svg" alt=""></a>
+        <a href="./includes/handelForm.php"><button class="add btn btn-light">Add Product</button></a>
     </nav>
 
     <main>
         <?php
         if (isset($_GET["updated"])) {
         ?>
-            <div class="alert alert-primary" role="alert">
+            <div class="alert alert-primary js-alert" role="alert">
                 The Announce is Updated Succesfully
             </div>
         <?php } ?>
         <?php
         if (isset($_GET["deleted"])) {
         ?>
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-warning js-alert" role="alert">
                 The Announce is Deleted Succesfully
             </div>
         <?php } ?>
@@ -85,7 +91,7 @@ $data = getData();
         <?php
         if (isset($_GET["deletedALL"])) {
         ?>
-            <div class="alert alert-warning" role="alert">
+            <div class="alert alert-warning js-alert" role="alert">
                 ALL The Announces are Deleted Succesfully
             </div>
         <?php } ?>
@@ -93,7 +99,7 @@ $data = getData();
         <?php
         if (isset($_GET["added"])) {
         ?>
-            <div class="alert alert-success" role="alert">
+            <div class="alert alert-success js-alert" role="alert">
                 The Announce is Added Succesfully
             </div>
         <?php } ?>
@@ -102,7 +108,7 @@ $data = getData();
         if (isset($_GET["error"]) == true) {
 
         ?>
-            <div class="alert alert-danger" role="alert">
+            <div class="alert alert-danger js-alert" role="alert">
                 The data You've Entered is Incorrect
             </div>
 
@@ -252,7 +258,7 @@ $data = getData();
                     <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                         <!-- Content -->
                         <h6 class="text-uppercase fw-bold mb-4">
-                            <i class="fas fa-gem me-3"></i>Company name
+                            <i class="fas fa-gem me-3"></i>Avito
                         </h6>
                         <p>
                             Here you can use rows and columns to organize your footer content. Lorem ipsum
@@ -324,8 +330,8 @@ $data = getData();
 
         <!-- Copyright -->
         <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
-            © 2021 Copyright:
-            <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+            © 2021 Copyright    
+            AVITO
         </div>
         <!-- Copyright -->
     </footer>
@@ -334,6 +340,11 @@ $data = getData();
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        setTimeout(()=> {
+            document.querySelector(".js-alert").style.display = "none";
+        }, 3000)
+    </script>
 </body>
 
 </html>
