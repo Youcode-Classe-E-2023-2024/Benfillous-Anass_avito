@@ -26,7 +26,7 @@ $data = getData();
             margin-top: 100Px;
         }
 
-        img {
+        .product-image {
             max-width: 300Px;
             margin-top: 20px;
 
@@ -61,8 +61,9 @@ $data = getData();
 </head>
 
 <body>
-    <nav class="navbar navbar-dark bg-primary">
-        <a class="navbar-brand">Avito</a>
+    <nav class="navbar navbar-dark bg-primary d-flex justify-content-around">
+        <a class="navbar-brand"><img src="https://www.avito.ma/phoenix-assets/imgs/layout/new-logo.svg" alt=""></a>
+        <a href="./includes/handelForm.php"><button>Add Product</button></a>
     </nav>
 
     <main>
@@ -121,7 +122,6 @@ $data = getData();
                     <th scope="col">Edit</th>
                     <th scope="col">Delete</th>
                     <th scope="col">
-                        <a href="./includes/handelForm.php"><button>Add Product</button></a>
                         <?php
                         if (count($data) != 0) {
                         ?>
@@ -161,7 +161,7 @@ $data = getData();
                     <tr>
                         <th scope="row"><?php echo $announce["id"] ?></th>
                         <td><?php echo $announce["title"] ?></td>
-                        <td><?php echo '<img src="data:image/jpeg;base64,' . base64_encode($announce["img"]) . '" alt="Uploaded Image">'; ?></td>
+                        <td><?php echo '<img class="product-image" src="data:image/jpeg;base64,' . base64_encode($announce["img"]) . '" alt="Uploaded Image">'; ?></td>
                         <td><?php echo $announce["price"] ?></td>
                         <td><?php echo $announce["descri"] ?></td>
                         <td><?php echo $announce["phone"] ?></td>
